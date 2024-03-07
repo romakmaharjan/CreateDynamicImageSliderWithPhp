@@ -13,7 +13,8 @@
         <div class="slider">
             <?php foreach ($images as $image): ?>
             <div class="slide">
-                <img src="<?php echo $image; ?>" alt="Slide Image">
+                <img src="<?php echo $image; ?>" alt="">
+                <h6><?php echo $row["title"]; ?></h6>
             </div>
             <?php endforeach; ?>
         </div>
