@@ -1,7 +1,7 @@
 <?php
 // Database connection
 $servername = "localhost";
-$username = "username";
+$username = "root";
 $password = "";
 $dbname = "dynamicImage";
 
@@ -11,6 +11,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+    
 // Fetch images from the database
 $sql = "SELECT * FROM images";
 $result = $conn->query($sql);
@@ -18,7 +19,10 @@ $result = $conn->query($sql);
 $images = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $images[] = $row['image_path'];
+        $images[] = [
+            'url' => 'images/' . $row["file_name"],
+            'title' => $row["title"] // Assuming your title column name is "title"
+        ];
     }
 }
 

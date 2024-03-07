@@ -1,3 +1,8 @@
+<?php
+require_once "dbConfig.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Image Slider</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,8 +18,8 @@
         <div class="slider">
             <?php foreach ($images as $image): ?>
             <div class="slide">
-                <img src="<?php echo $image; ?>" alt="">
-                <h6><?php echo $row["title"]; ?></h6>
+                <img src="<?php echo $image['url']; ?>" alt="" width="500px">
+                <h3><?php echo $image["title"]; ?></h4>
             </div>
             <?php endforeach; ?>
         </div>
